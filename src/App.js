@@ -2,7 +2,7 @@ import './App.css';
 import React, {useState} from 'react';
 
 function App() {
-  const [returnedData, setReturnedData] = useState(['Welcome to my Project']);
+  const [returnData, setReturnedData] = useState(['Welcome to my Project']);
   const getData = async (url) => {
     const newData = await fetch(url, {
       method: 'GET',
@@ -18,7 +18,7 @@ function App() {
   return (
   <div className="App">
     <button onClick={() => getData('/quit')}>Click</button>
-    {returnedData}
+    {returnData}
   </div>
   );
 }
