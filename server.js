@@ -1,4 +1,5 @@
 const express       = require('express'),
+      Employee      = require('./dbFiles/employee'),
       dbOperation   = require('./dbFiles/dbOperation'),
     	cors          = require('cors');
 
@@ -19,8 +20,13 @@ const express       = require('express'),
 // })
 
 
+let Pam = new Employee(1002, 'Pam', 'Beezley', 29, 'Female');
+
+// console.log(Pam);
 dbOperation.getEmployees().then(res => {
-  console.log(res);
+  console.log(res.recordset);
 })
 
 // app.listen(API_PORT, () => console.log(`Listening on port ${API_PORT}`));
+
+dbOperation.createEmployee(Pam);
