@@ -3,30 +3,26 @@ const express       = require('express'),
       dbOperation   = require('./dbFiles/dbOperation'),
     	cors          = require('cors');
 
-// const API_PORT = process.env.PORT || 5000;
-// const app = express();
+const API_PORT = process.env.PORT || 5000;
+const app = express();
 
+let client;
+let sessions; 
+app.use(express.json());
+app.use(express.urlencoded());
+app.use(cors());
 
-// app.use(cors());
-
-// app.get('/api', function(req,res) {
-// 	console.log('Called');
-// 	res.send({result: 'Hello World'})
-// })
-
-// app.get('/quit', function(req,res) {
-// 	console.log('Called quit');
-// 	res.send({result: 'Good Bye'})
-// })
-
-
-let Pam = new Employee(1002, 'Pam', 'Beezley', 29, 'Female');
-
-// console.log(Pam);
-dbOperation.getEmployees().then(res => {
-  console.log(res.recordset);
+app.post('/api', async(req,res) => {
+	console.log('Called');
+  const result = await dbOperation.getEmployees(req.body.name);
+	res.send(result.recordset);
 })
 
-// app.listen(API_PORT, () => console.log(`Listening on port ${API_PORT}`));
+app.post('/quit', async(req,res) => {
+  await dbOperation.createEmployee(req.body);
+  const result = await dbOperation.getEmployees(req.body.firstname);
+	console.log('Called quit');	
+  res.send(result.recordset);
+})
 
-dbOperation.createEmployee(Pam);
+app.listen(API_PORT, () => console.log(`Listening on port ${API_PORT}`));
