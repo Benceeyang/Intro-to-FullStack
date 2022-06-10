@@ -32,6 +32,7 @@ const setInput = (e) => {
      })
    })
    .then(res => res.json())
+   console.log(newData);
    setReturnedData(newData[0])
   }
   
