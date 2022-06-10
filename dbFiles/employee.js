@@ -10,10 +10,10 @@ class Employee{
 
 module.exports = Employee;
 
-const Pam = {
-    EmployeeID: 1002,
-    firstname: 'Pam',
-    lastname: 'Beezley',
-    Age: 29,
-    Gender: 'Female'
-}
+// const Pam = {
+//     EmployeeID: 1002,
+//     firstname: 'Pam',
+//     lastname: 'Beezley',
+//     Age: 29,
+//     Gender: 'Female'
+// }

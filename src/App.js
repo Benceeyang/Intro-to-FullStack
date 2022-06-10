@@ -7,6 +7,7 @@ function App() {
 
 const setInput = (e) => {
   const {name, value} = e.target;
+  console.log(value);
   if(name === 'EmployeeID' || name === 'Age'){
     setEmployee(prevState => ({
       ...prevState,
