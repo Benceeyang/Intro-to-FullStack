@@ -13,7 +13,7 @@ app.use(express.urlencoded());
 app.use(cors());
 
 app.post('/api', async(req,res) => {
-  console.log('Called');
+  console.log(req);
   const result = await dbOperation.getEmployees(req.body.name);
 	res.send(result.recordset);
 })

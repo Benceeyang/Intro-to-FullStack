@@ -1,8 +1,10 @@
+const { computeHeadingLevel } = require('@testing-library/react');
 const config               = require('./dbConfig'),
       sql                  = require('mssql');
 
 const getEmployees = async(firstname) => {
   try {
+    console.log(firstname);
     let pool = await sql.connect(config);
     let employees = await pool.request().query(`Select * From Employeedemographics where firstname = '${firstname}'`)
     return employees;

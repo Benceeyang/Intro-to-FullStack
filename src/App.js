@@ -83,7 +83,7 @@ const setInput = (e) => {
     <p>lastname:{returnData.lastname}</p>
     <p>Age:{returnData.Age}</p>
     <p>Gender:{returnData.Gender}</p>
-    {returnData}
+    {/* {returnData} */}
   </div>
   );
 }
