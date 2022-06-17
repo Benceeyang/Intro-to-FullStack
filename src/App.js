@@ -1,5 +1,7 @@
 import './App.css';
 import React, {useState} from 'react';
+import Button from '@mui/material/Button';
+
 
 function App() {
   const [returnData, setReturnedData] = useState(['Welcome to my Project']);
@@ -52,6 +54,11 @@ const setInput = (e) => {
    setReturnedData(newData[0])
   }
 
+  // if(getEmployee){
+
+  // }
+
+
   return (
   <div className="App">
     <input 
@@ -78,14 +85,22 @@ const setInput = (e) => {
     onChange={setInput}></input>
     <button onClick={() => fetchData()}>Click</button>
     <button onClick={() => createEmployee()}>Create</button>
-    <p>EmployeeID:{returnData.EmployeeID}</p>
-    <p>firstname:{returnData.firstname}</p>
-    <p>lastname:{returnData.lastname}</p>
-    <p>Age:{returnData.Age}</p>
-    <p>Gender:{returnData.Gender}</p>
+    {/* <button onClick={() => this.handleClick(onClick)} /> */}
+    <p>EmployeeID:{returnData.JUDGE}</p>
+    <p>firstname:{returnData['DEPUTY COURT CLERK']}</p>
+    <p>lastname:{returnData.ROOM}</p>
+    <p>Age:{returnData.PHONE}</p>
+    <p>Gender:{returnData.PHONE}</p>
     {/* {returnData} */}
+    <Button variant="contained" sx={{color: 'black'}}>Contained</Button>
   </div>
   );
 }
 
 export default App;
+
+
+//const input name;
+//if(inputname !-- returnData.JUDGE){
+//console.log('Name not found')
+//}

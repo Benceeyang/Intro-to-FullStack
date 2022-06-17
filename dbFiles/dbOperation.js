@@ -6,10 +6,22 @@ const getEmployees = async(firstname) => {
   try {
     console.log(firstname);
     let pool = await sql.connect(config);
-    let employees = await pool.request().query(`Select * From Employeedemographics where firstname = '${firstname}'`)
+    let employees = await pool.request().query(`Select * From judges WHERE JUDGE = '${firstname}'`)
     return employees;
   }
   catch(error){
+  }
+}
+
+const getROOM = async(Room) => {
+  try {
+    console.log(Room);
+    let pool = await sql.connect(config);
+    let employees = await pool.request().query(`Select * From judges WHERE ROOM = '${Room}'`)
+    return Room;
+  }
+  catch(error){
+    console.log(error);
   }
 }
 
@@ -30,5 +42,6 @@ const createEmployee = async(Employee) => {
 
 module.exports = {
   createEmployee,
-  getEmployees
+  getEmployees,
+  getROOM,
 }
